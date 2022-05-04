@@ -20,9 +20,12 @@ namespace ReNo
     /// </summary>
     public partial class MainWindow : Window
     {
+        int count = 0;
+
         public MainWindow()
         {
             InitializeComponent();
         }
+
     }
 }

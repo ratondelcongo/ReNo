@@ -7,6 +7,24 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="newNote" Grid.Column="0" Margin="0,0,5,5" TextWrapping="Wrap" Text="" />
+                <Button x:Name="button" Grid.Column="1" Margin="5,0,0,5" Content="Guardar" Click="button_Click"/>
+            </Grid>
+
+            <Grid x:Name="notes" Grid.Row="1"/>
+            
+        </Grid>
     </Grid>
 </Window>
