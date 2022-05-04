@@ -27,5 +27,51 @@ namespace ReNo
             InitializeComponent();
         }
 
+        internal void FillbtnSubCat(string text)
+        {
+            var myRowDefinition = new RowDefinition();
+            var textBox = new TextBox();
+
+            textBox.Text = text;
+            textBox.IsReadOnly = true;
+            textBox.Margin = new Thickness(0,0,0,5);
+
+            Grid.SetRow(textBox, count);
+
+            myRowDefinition.Height = new GridLength(70);
+
+            if (count < 5)
+            {
+                notes.RowDefinitions.Add(myRowDefinition);
+                notes.Children.Add(textBox);
+            }
+            else
+            {
+                notes2.RowDefinitions.Add(myRowDefinition);
+                notes2.Children.Add(textBox);
+            }
+
+            count++;
+        }
+
+
+        void button_Click(object sender, RoutedEventArgs e)
+        {
+            if (newNote.Text.Length == 0)
+            {
+                newNote.Focus();
+                return;
+            }
+            var newNoteText = newNote.Text;
+            FillbtnSubCat(newNoteText);
+
+            newNote.Text = "";
+            newNote.Focus();
+        }
+
+        private void full_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
+        }
     }
 }
